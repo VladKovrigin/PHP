@@ -67,7 +67,7 @@
 
         <form name="test" method="POST" action="form.php">
             <h2>ФОРМА СОЗДАНИЯ ТОВАРА</h2>
-            <div>
+            <div >
                 <label>
                     Напишите число Пи
                     <input name="pi">
@@ -77,38 +77,38 @@
                 <p>Год крещения Руси</p>
                 <div>
                     <label>
-                        <input type="radio" name="question" value="0">987
+                        <input type="radio" name="question" value="val0">987
                     </label>
                 </div>
                 <div>
                     <label>
-                        <input type="radio" name="question" value="1">988
+                        <input type="radio" name="question" value="val1">988
                     </label>
                 </div>
                 <div>
                     <label>
-                        <input type="radio" name="question" value="2">889
+                        <input type="radio" name="question" value="val2">889
                     </label>
                 </div>
             </div>
 
             <div>
                 <div>
-                    <p>в теории графов графы бывают</p>
+                    <p>Теория графов рассматривает такие виды связей</p>
                 </div>
                 <div>
                     <label>
-                        <input type="checkbox" name="question" value="3">Ориентированные
+                        <input type="checkbox" name="question21" value="val0">Ориентированные графы
                     </label>
                 </div>
                 <div>
                     <label>
-                        <input type="checkbox" name="question" value="4">Неориентированные
+                        <input type="checkbox" name="question22" value="val1">Неориентированные графы
                     </label>
                 </div>
                 <div>
                     <label>
-                        <input type="checkbox" name="question" value="5">французские
+                        <input type="checkbox" name="question23" value="val2">Полуориентированные графы
                     </label>
                 </div>
             </div>

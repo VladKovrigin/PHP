@@ -35,16 +35,34 @@ if(isset($_POST) && isset($_POST['send-product'])) {
 
 if(isset($_POST) && isset($_POST['submit-test'])) {
     $myMark = 0;
-    if($_POST['question'] && $_POST['question'] === '1'){
+
+    if(isset($_POST['pi']) === ('3.14' || '3,14')) {
         $myMark++;
     }
 
-    if($_POST['question'] === '3' && $_POST['question']) {
+    if(isset($_POST['question']) && $_POST['question'] === 'val1'){
         $myMark++;
+    } else {
+        $myMark--;
     }
-    if($_POST['question'] && $_POST['question'] === '4') {
-        $myMark++;
+    if(isset($_POST['question21']) && $_POST['question21'] === 'val0') {
+            $myMark++;
+    } else {
+        $myMark -= 0.33;
     }
 
-    echo $myMark;
+    if(isset($_POST['question22']) && $_POST['question22'] === 'val1') {
+            $myMark++;
+    } else {
+        $myMark -= 0.33;
+    }
+
+    if(isset($_POST['question23']) && $_POST['question23'] === 'val2') {
+            $myMark -= 0.33;
+    }
+    if($myMark < 0) {
+        echo "Ваш результат: 0 баллов";
+    } else {
+        echo "Ваш результат: {$myMark} баллов";
+    }
 }
