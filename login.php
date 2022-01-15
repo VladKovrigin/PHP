@@ -1,28 +1,27 @@
-<?php
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>LogIn</title>
+    </head>
 
-session_start();
-$_SESSION['login'] = 'thisUserName';
-$_SESSION['password'] = '202cb962ac59075b964b07152d234b70';
-
-if(isset($_POST['login']) && isset($_POST['password'])) {
-    setcookie('login', $_POST['login']);
-    setcookie('password', $_POST['password']);
-    $loginCorrect = false;
-    $passwordCorrect = false;
-    if($_POST['login'] === $_SESSION['login']) {
-        $loginCorrect = true;
-    }
-    if(md5($_POST['password']) === $_SESSION['password']) {
-        $passwordCorrect = true;
-    }
-    if($passwordCorrect && $loginCorrect) {
-        header('Location: http://example.palmo/home.php');
-    } else {
-        header('Location: http://example.palmo/index.php');
-    }
-} else {
-    header('Location: http://example.palmo/index.php');
-}
-if(isset($_POST['registration'])) {
-    header('Location: /registration.html');
-}
+    <body>
+        <form name="login" method="POST" action="form.php" enctype="multipart/form-data">
+            <div>
+                <label>
+                    <input type="text" name="login" required placeholder="Логин"
+                              value="<?php echo isset($_COOKIE['login']) ? $_COOKIE['login'] : ''; ?>">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="password" name="password" required placeholder="Пароль">
+                </label>
+            </div>
+            <input type="submit" value="Авторизация">
+        </form>
+    </body>
+</html>

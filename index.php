@@ -1,28 +1,30 @@
+<?php
+session_start();
+?>
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/main.css">
-        <title>Start-page</title>
+        <meta charset="utf-8">
+        <title>Start page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-        <form id="form" method="POST" action="login.php" enctype="multipart/form-data">
-            <label>
-                <input type="text" name="login" value="<?php echo isset($_COOKIE['login']) ? $_COOKIE['login'] : ''?>">
-            </label>
-            <label>
-                <input type="password" name="password" value="<?php echo isset($_COOKIE['password']) ? $_COOKIE['password'] : ''?>">
-            </label>
-            <button type="submit" class="submit">Войти</button>
-        </form>
-        <form method="POST" action="login.php" enctype="multipart/form-data">
-            <button type="submit" class="submit to-registrate" name="registration">
-                Зарегистрироваться
-            </button>
-        </form>
+        <?php
+        if (isset($_SESSION)){
+            if ($_SESSION){
+                include 'home.php';
+                exit();
+            }
+        }
+        ?>
+            <a href="registration.php">
+                <button>Регистрация</button>
+            </a>
+            <a href="login.php">
+                <button>Авторизация</button>
+            </a>
+
     </body>
 </html>
