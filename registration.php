@@ -10,19 +10,19 @@
     <body>
         <form class="new-page" method="POST" action="form.php" enctype="multipart/form-data">
             <div>
-                <label><input type="text" name="name" required placeholder="Имя"></label>
+                <label><input type="text" name="name" placeholder="Имя"></label>
             </div>
             <div>
-                <label><input type="tel" name="number" required placeholder="Номер телефона"></label>
+                <label><input type="tel" name="number" placeholder="Номер телефона"></label>
             </div>
             <div>
-                <label><input type="text" name="login" required placeholder="Логин"></label>
+                <label><input type="text" name="loginRegist" placeholder="Логин"></label>
             </div>
             <div>
-                <label><input type="password" name="password" required placeholder="Пароль"></label>
+                <label><input type="password" name="passwordRegist" placeholder="Пароль"></label>
             </div>
             <div>
-                <label><input type="password" name="passwordAgain" required placeholder="Повторите пароль"></label>
+                <label><input type="password" name="passwordAgain" placeholder="Повторите пароль"></label>
             </div>
             <div>
                 <button type="submit" name="registration">Создать запись</button>

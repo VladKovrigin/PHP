@@ -12,13 +12,14 @@
         <form name="login" method="POST" action="form.php" enctype="multipart/form-data">
             <div>
                 <label>
-                    <input type="text" name="login" required placeholder="Логин"
+                    <input type="text" name="login" placeholder="Логин"
                               value="<?php echo isset($_COOKIE['login']) ? $_COOKIE['login'] : ''; ?>">
                 </label>
             </div>
             <div>
                 <label>
-                    <input type="password" name="password" required placeholder="Пароль">
+                    <input type="password" name="password" placeholder="Пароль"
+                              value="<?php echo isset($_COOKIE['password']) ? $_COOKIE['password'] : ''; ?>">
                 </label>
             </div>
             <input type="submit" value="Авторизация">
