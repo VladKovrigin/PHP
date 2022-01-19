@@ -1,6 +1,7 @@
 <?php
 
 class Figure {
+
     protected $type;
 
     public function __construct($type)
@@ -8,22 +9,23 @@ class Figure {
         $this->type = $type;
     }
 
-    function GetType()
+    function getType()
     {
-        echo $this->type;
+        return $this->type;
     }
 
-    public function Perimeter()
+    public function perimeter()
     {
 
     }
-    public function Area()
+    public function area()
     {
 
     }
 }
 
 class Circle extends Figure {
+
     protected $radius;
     const PI = 3.1416;
 
@@ -33,22 +35,24 @@ class Circle extends Figure {
         $this->radius = $radius;
     }
 
-    public function GetFigure()
+    public function getFigure()
     {
         return 'Фигура ' . $this->GetType() . ', площадь: ' . $this->Area() . ', периметр: ' . $this->Perimeter();
     }
 
-    public function Perimeter()
+    public function perimeter()
     {
         return 2 * $this->radius * self::PI;
     }
-    public function Area()
+
+    public function area()
     {
         return self::PI * ($this->radius ** 2);
     }
 }
 
 class Triangle extends Figure {
+
     protected $a;
     protected $b;
     protected $c;
@@ -60,49 +64,56 @@ class Triangle extends Figure {
         $this->b = $b;
         $this->c = $c;
     }
-    public function GetFigure()
+
+    public function getFigure()
     {
-        return 'Фигура ' . $this->GetType() . ', площадь: ' . $this->Area() . ', периметр: ' . $this->Perimeter();
+        return "Фигура \n" . $this->getType() . ', площадь: ' . $this->area() . ', периметр: ' . $this->perimeter();
     }
-    public function Perimeter()
+
+    public function perimeter()
     {
         return $this->a + $this->b + $this->c;
     }
-    public function Area()
+
+    public function area()
     {
-        $SemiPer = $this->Perimeter() / 2;
+        $SemiPer = $this->perimeter() / 2;
         return ( $SemiPer * ( $SemiPer - $this->a ) * ( $SemiPer - $this->b ) * ( $SemiPer - $this->c ) ) ** 0.5;
     }
 }
 
 
 class Square extends Figure {
-    protected $SideLength;
 
-    public function __construct($SideLength)
+    protected $sideLength;
+
+    public function __construct($sideLength)
     {
         $this->type = 'Квадрат';
-        $this->SideLength = $SideLength;
+        $this->sideLength = $sideLength;
     }
-    public function GetFigure()
+
+    public function getFigure()
     {
-        return "Фигура {$this->GetType()}, площадь: {$this->Area()}, периметр: {$this->Perimeter()}";
+        return "Фигура {$this->getType()}, площадь: {$this->area()}, периметр: {$this->perimeter()}";
     }
-    public function Perimeter()
+
+    public function perimeter()
     {
-        return $this->SideLength * 4;
+        return $this->sideLength * 4;
     }
-    public function Area()
+    public function area()
     {
-        return $this->SideLength ** 2;
+        return $this->sideLength ** 2;
     }
 }
 
+
 $triangle = new Triangle(5, 10, 12);
-echo $triangle->GetFigure() . "<br>";
+echo $triangle->getFigure() . "<br>";
 
 $square = new Square(10);
-echo $square->GetFigure() . "<br>";
+echo $square->getFigure() . "<br>";
 
 $circle = new Circle(7);
-echo $circle->GetFigure() . "<br>";
+echo $circle->getFigure() . "<br>";
