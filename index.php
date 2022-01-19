@@ -37,7 +37,7 @@ class Circle extends Figure {
 
     public function getFigure()
     {
-        return 'Фигура ' . $this->GetType() . ', площадь: ' . $this->Area() . ', периметр: ' . $this->Perimeter();
+        return 'Фигура ' . $this->getType() . ', площадь: ' . $this->area() . ', периметр: ' . $this->perimeter();
     }
 
     public function perimeter()
@@ -77,8 +77,8 @@ class Triangle extends Figure {
 
     public function area()
     {
-        $SemiPer = $this->perimeter() / 2;
-        return ( $SemiPer * ( $SemiPer - $this->a ) * ( $SemiPer - $this->b ) * ( $SemiPer - $this->c ) ) ** 0.5;
+        $semiPer = $this->perimeter() / 2;
+        return ( $semiPer * ( $semiPer - $this->a ) * ( $semiPer - $this->b ) * ( $semiPer - $this->c ) ) ** 0.5;
     }
 }
 
