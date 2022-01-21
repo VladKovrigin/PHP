@@ -1,3 +1,8 @@
+<?php
+namespace blog;
+
+?>
+
 <!doctype html>
 <html lang="en">
     <head>

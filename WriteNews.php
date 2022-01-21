@@ -1,5 +1,7 @@
 <?php
 
+namespace blog\WriteNews;
+
 class News {
     public string $name;
     public string $aboutNews;
@@ -24,7 +26,7 @@ class News {
             $correctAbout = true;
         }
         if(!$_POST['dateNews']) {
-            $_POST['dateNews'] = date("d/m/Y");
+            $_POST['dateNews'] = date("d-m-Y");
         }
 
         if(!isset($_POST['choiceType'])) {
@@ -53,7 +55,6 @@ class News {
         if(isset($_COOKIE['news'])) {
             $allNews = json_decode($_COOKIE['news']);
         }
-
         $allNews[] = $this;
         setcookie('news', json_encode($allNews));
     }
@@ -66,7 +67,13 @@ class News {
             $this->choiceType = $_POST['choiceType'];
             $this->textNews = $_POST['newsText'];
             $this->author = $_POST['author'];
-            $this->pathImage = $_FILES['imageNews']['tmp_name'];
+
+            $filename = $_FILES['imageNews']['name'];
+            $current_path = $_FILES['imageNews']['tmp_name'];
+            $new_path = dirname(__FILE__) . '/img/' . $filename;
+            $file_path = 'img/' . $filename;
+            move_uploaded_file($current_path, $new_path);
+            $this->pathImage = $file_path;
 
             $this->setCookie();
         } else {
@@ -77,3 +84,4 @@ class News {
 }
 
 $news = new News();
+include "index.php";

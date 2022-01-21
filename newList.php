@@ -5,24 +5,19 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Список новостей</title>
     </head>
     <body>
         <?php
-        var_dump($_COOKIE['news']);
-
-        $allNews = json_decode($_COOKIE['news']);
-        var_dump($allNews);
-        var_dump();
-
-        foreach($allNews as $news) {
-            echo $news['name'] . "<br>";
-            echo $news['author']  . "<br>";
-            echo $news['newsDate'] . "<br>";
-            echo $news['aboutNews']  . "<br><br>";
+        $allNews = json_decode($_COOKIE['news'], true);
+        for($news = 0; $news <= count($allNews)-1; $news++) {
+            echo "<form method='post' name='{$allNews[$news]['name']}' action='MoreAboutNews.php' enctype='multipart/form-data'>";
+            echo "<div>" . $allNews[$news]['name'] . "</div>";
+            echo "<div>Автор: " . $allNews[$news]['author'] . "</div>";
+            echo "<div>Дата: " . $allNews[$news]['newsDate'] . "</div>";
+            echo "<div>Краткое описание: " . $allNews[$news]['aboutNews'] . "</div>";
+            echo "<input type='submit' name='{$news}' value='Подробнее'></form>";
         }
-        $pathImage = $allNews[0]['pathImage'];
-        echo "<img src='$pathImage'>";
 
         ?>
     </body>
