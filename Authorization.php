@@ -8,17 +8,25 @@ use blog\Base as Base;
 
 interface AuthorizationInterface
 {
-    public function setBase($login, $password);
+    public function __construct();
 }
 
 class Authorization extends Base implements AuthorizationInterface
 {
     public string $login;
     protected string $password;
-    public function __construct()
+
+    protected function validate()
     {
         $this->setBase($_POST['authorizeLogin'], $_POST['authorizePassword']);
-        setcookie('login', $this->login);
+    }
+
+    public function __construct()
+    {
+        $this->validate();
+        if(isset($_POST['rememberMe'])) {
+            setcookie('login', $this->login);
+        }
     }
 }
 
